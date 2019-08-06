@@ -1,0 +1,156 @@
+nav a {
+    color: #ffffff;
+}
+nav {
+    margin-bottom: 2rem;
+}
+.menuToggle {
+    display: block;
+    top: 2.5rem;
+    z-index: 1;
+    user-select: none;
+    min-height: 6.25rem;
+    position: sticky;
+    background-color: $primary-color;
+}
+
+.menuToggle input {
+    display: block;
+    width: 2rem;
+    height: 1.75rem;
+    position: absolute;
+    top: 3.625rem;
+    left:1rem;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+.menuToggle .hamburger-icon {
+    @include respond-to('medium') {
+        display: none;
+    }
+    display: block;
+    width: 2rem;
+    height: 0.25rem;
+    margin-bottom: 0.3215rem;
+    position: relative;
+    top: 3.625rem;
+    left: 1rem;
+
+    background: #ffffff;
+    border-radius: 0.1875rem;
+
+    z-index: 1;
+
+    transform-origin: 0.25rem 0;
+
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        opacity 0.55s ease-in-out;
+}
+
+.menuToggle .hamburger-icon:first-child {
+    transform-origin: 0% 0%;
+}
+
+.menuToggle .hamburger-icon:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ .hamburger-icon {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #ffffff;
+}
+
+.menuToggle input:checked ~ .hamburger-icon:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ .hamburger-icon:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+    position: absolute;
+    min-width: 250px;
+    width: 60%;
+    margin: -6.25rem 0 0 -1.2rem;
+    padding: 2rem;
+    padding-top: 7rem;
+    height: 100vh;
+    color: $primary-color;
+    @include respond-to('medium') {
+        max-width: 100%;
+        height: auto;
+        padding: 1rem;
+        margin: 0;
+        width: 100%;
+        text-align: right;
+    }
+
+    background: $primary-color;
+    color: #ffffff;
+    list-style-type: none;
+
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    @include respond-to('medium') {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+}
+
+.menu .nav-list-item {
+    padding: 0.625rem 0;
+    font-size: 0.875rem;
+    line-height: 3rem;
+    text-align: center;
+    opacity: 0.8;
+    @include respond-to('medium') {
+        display: inline-block;
+        vertical-align: top;
+        padding: 0.625rem 1.875rem;
+    }
+}
+
+.nav-list-item:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.menuToggle input:checked ~ ul {
+    transform: none;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-size: 1rem;
+    margin-right: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.header-logo {
+    max-width: 50px;
+    margin: 0 auto;
+
+    @include respond-to('medium') {
+        max-width: 100px;
+        margin: 1rem 0 0 0;
+    }
+}
+
+.header-logo-container {
+    text-align: center;
+
+    @include respond-to('medium') {
+        // display: inline-block;
+        font-size: 2rem;
+        text-align: left;
+    }
+}
